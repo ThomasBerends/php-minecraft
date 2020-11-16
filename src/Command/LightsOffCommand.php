@@ -47,8 +47,6 @@ class LightsOffCommand extends Command
 
         $this->defaultStorage->update('lights.nbt', gzencode($nbtService->writeString($structure)));
 
-        //$this->defaultStorage->update('set.nbt', gzencode($newNbt));
-
         $io->success('Turned off the lights!');
 
         return 0;

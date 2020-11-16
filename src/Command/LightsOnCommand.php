@@ -38,7 +38,11 @@ class LightsOnCommand extends Command
 
         $io = new SymfonyStyle($input, $output);
 
+        $this->defaultStorage->read('single-block-base.nbt');
+
         $nbtService = new \Nbt\Service(new \Nbt\DataHandler());
+
+        //$structure = $nbtService->loadFile('/home/thomas/.minecraft/saves/SymfonyCon 2019/generated/minecraft/structures/single-block/base.nbt');
         $structure = $nbtService->readString(base64_decode($structure));
 
         $palette = $structure->findChildByName('palette');
@@ -46,9 +50,6 @@ class LightsOnCommand extends Command
         $paletteChildren[0]->getChildren()[0]->setValue('minecraft:redstone_block');
 
         $this->defaultStorage->update('lights.nbt', gzencode($nbtService->writeString($structure)));
-
-
-        //$this->defaultStorage->update('set.nbt', gzencode($newNbt));
 
         $io->success('Turned on the lights!');
 
