@@ -4,4 +4,4 @@ flysystem:
         default.storage:
             adapter: 'local'
             options:
-                directory: '/home/thomas/.minecraft/saves/SymfonyCon 2019/generated/minecraft/structures'
+                directory: '../../../../Apps/MultiMC/instances/SymfonyCon/.minecraft/saves/SymfonyCon 2019/generated/minecraft/structures'
